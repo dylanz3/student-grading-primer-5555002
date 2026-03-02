@@ -39,8 +39,11 @@ def create_student():
         course = student_data.get("course")
         mark = student_data.get("mark")
 
-        if name is None or course is None or mark is None:
+        if name is None or course is None:
             return jsonify({"error": "Missing required fields"}), 404
+
+        if mark is None:
+            mark = 0
 
         if not isinstance(mark, int):
             try:
