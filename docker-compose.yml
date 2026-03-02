@@ -23,7 +23,11 @@ services:
       - "5000:5000"
 
   frontend:
-    # TODO: you will need to add to this
+    build: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"
 
   automark:
     build: ./automark
